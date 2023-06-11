@@ -7,9 +7,11 @@
 # https://discussion.heroku.com/t/django-automaticlly-run-syncdb-and-migrations-after-heroku-deploy-with-a-buildpack-or-otherwise/466/7
 
 echo '======= RUNNING MIGRATIONS'
-python3 manage.py migrate
+python3 src/manage.py migrate
 
 echo '======= PREPOPULATING THE DATABASE'
-python3 manage.py load_initial_data
+python3 src/manage.py load_initial_data
 
+echo '======= DEVEL DATA SEED'
+python3 src/manage.py devel_data_seed
 
